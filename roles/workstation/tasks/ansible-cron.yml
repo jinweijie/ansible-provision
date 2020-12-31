@@ -1,0 +1,19 @@
+- name: add ansible user
+  user:
+    name: autoansible
+    system: yes
+
+- name: setup sudo for ansible user
+  copy:
+    src: files/sudoer_autoansible
+    dest: /etc/sudoers.d/autoansible
+    owner: root
+    group: root
+    mode: 0440
+
+- name: add ansible-pull cron job
+  cron:
+    name: ansible auto-provision
+    user: autoansible
+    minute: "*/30"
+    job: ansible-pull -o -U https://github.com/jinweijie/ansible-provision.git workstation.yml

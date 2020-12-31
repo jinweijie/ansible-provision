@@ -1,0 +1,7 @@
+---
+- name: apply common configuration to server
+  hosts: localhost
+  connection: local
+  become: true
+  roles:
+    - common

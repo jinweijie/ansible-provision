@@ -1,0 +1,62 @@
+- name: install oh my zsh
+  become: yes
+  become_user: "{{ username }}"
+  command: "git clone -c core.autocrlf=input --depth=1 https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh"
+  args:
+    chdir: "~{{ username }}"
+    creates: "~{{ username }}/.oh-my-zsh"
+
+- name: install zsh-syntax-highlighting
+  become: yes
+  become_user: "{{ username }}"
+  command: "git clone -c core.autocrlf=input --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting .oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+  args:
+    chdir: "~{{ username }}"
+    creates: "~{{ username }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+
+- name: install zsh-autosuggestions
+  become: yes
+  become_user: "{{ username }}"
+  command: "git clone -c core.autocrlf=input --depth=1 https://github.com/zsh-users/zsh-autosuggestions .oh-my-zsh/custom/plugins/zsh-autosuggestions"
+  args:
+    chdir: "~{{ username }}"
+    creates: "~{{ username }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+
+- name: copy .zshrc file
+  copy:
+    src: files/zshrc
+    dest: "/home/{{ username }}/.zshrc"
+    owner: "{{ username }}"
+    group: "{{ user_group }}"
+
+- name: copy .vimrc file
+  copy:
+    src: files/vimrc
+    dest: /home/{{ username }}/.vimrc
+    owner: "{{ username }}"
+    group: "{{ user_group }}"
+
+# lf fd fzf *********************************************************************************
+- name: install lf
+  become: yes
+  become_user: "{{ username }}"
+  shell: 
+    cmd: wget https://github.com/gokcehan/lf/releases/download/r13/lf-linux-amd64.tar.gz && tar xvf lf-linux-amd64.tar.gz && sudo mv lf /usr/local/bin && rm lf-linux-amd64.tar.gz
+    chdir: /tmp
+    creates: /usr/local/bin/lf
+    warn: false
+
+- name: install fd
+  become: yes
+  shell:
+    cmd: wget https://github.com/sharkdp/fd/releases/download/v7.4.0/fd_7.4.0_amd64.deb && sudo dpkg -i fd_7.4.0_amd64.deb && rm fd_7.4.0_amd64.deb
+    chdir: /tmp
+    creates: /usr/bin/fd
+    warn: false
+
+- name: "install fzf"
+  become: yes
+  become_user: "{{ username }}"
+  shell: "git clone --depth 1 https://github.com/junegunn/fzf.git ~{{ username }}/.fzf && yes | ~{{ username }}/.fzf/install"
+  args:
+    creates: "~{{ username }}/.fzf"

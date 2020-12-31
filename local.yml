@@ -1,0 +1,13 @@
+---
+- name: apply common configuration to all nodes
+  hosts: all
+  become: true
+  roles:
+    - common
+
+- name: apply workstation role
+  hosts: workstation
+  become: true
+  roles:
+    - common
+    - workstation

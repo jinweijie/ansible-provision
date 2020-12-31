@@ -1,0 +1,3 @@
+- include: ansible-cron.yml
+- include: desktop-software.yml
+- include: desktop-customize.yml

@@ -1,0 +1,40 @@
+- name: install desktop packages
+  package:
+    name:
+      - filezilla
+      - copyq
+      - fcitx-bin
+      - fcitx-googlepinyin
+      - tilix # sudo update-alternatives --config x-terminal-emulator
+      - gnome-shell-extension-prefs # extension -> remove desktop icon
+      - dconf-editor
+      - python3-psutil
+
+- name: remove default unnecessary packages
+  package:
+    name:
+      - thunderbird
+      - rhythmbox
+      - gnome-mahjongg
+      - aisleriot
+      - gnome-mines
+      - gnome-sudoku
+      - libreoffice-core
+      - libreoffice-common
+      - libreoffice-help-common
+      - libreoffice-help-en-us
+      - libreoffice-pdfimport
+      - libreoffice-style-breeze
+      - libreoffice-style-colibre
+      - libreoffice-style-elementary
+      - libreoffice-style-yaru
+      - liblibreoffice-java
+      - libreoffice-gnome
+      - libreoffice-math
+      - libreoffice-draw
+      - libreoffice-base-core
+    state: absent
+
+- name: Remove dependencies that are no longer required
+  apt:
+    autoremove: yes

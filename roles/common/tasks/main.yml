@@ -1,0 +1,3 @@
+- include: basic.yml
+- include: docker.yml
+- include: cli.yml

@@ -1,0 +1,8 @@
+---
+- name: apply common configuration to workstation
+  hosts: localhost
+  connection: local
+  become: true
+  roles:
+    - common
+    - workstation

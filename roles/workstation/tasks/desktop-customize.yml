@@ -1,0 +1,32 @@
+# set wallpaper & lock screen
+- name: copy wallpaper file
+  copy:
+    src: files/wallpaper.jpg
+    dest: /usr/share/backgrounds/ansible-wallpaper.jpg
+    owner: root
+    group: root
+
+- name: set wallpaper
+  become_user: "{{ username }}"
+  dconf:
+    key: "/org/gnome/desktop/background/picture-uri"
+    value: "'file:///usr/share/backgrounds/ansible-wallpaper.jpg'"
+
+- name: set wallpaper position
+  become_user: "{{ username }}"
+  dconf:
+    key: "/org/gnome/desktop/background/picture-options"
+    value: "'zoom'"
+
+# dock
+- name: set dock position
+  become_user: "{{ username }}"
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/dock-position"
+    value: "'BOTTOM'"
+
+- name: set dock position
+  become_user: "{{ username }}"
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/dash-max-icon-size"
+    value: "28"
