@@ -36,6 +36,13 @@
     owner: "{{ username }}"
     group: "{{ user_group }}"
 
+- name: copy .tmux.conf file
+  copy:
+    src: files/tmux.conf
+    dest: /home/{{ username }}/.tmux.conf
+    owner: "{{ username }}"
+    group: "{{ user_group }}"
+
 # lf fd fzf *********************************************************************************
 - name: install lf
   become: yes
