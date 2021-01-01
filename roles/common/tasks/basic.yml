@@ -11,6 +11,7 @@
       - htop
       - zsh
       - vim
+      - tmux
       - tldr
       - pwgen
       - curl
