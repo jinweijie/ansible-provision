@@ -48,7 +48,7 @@
   become: yes
   become_user: "{{ username }}"
   shell: 
-    cmd: wget https://github.com/gokcehan/lf/releases/download/r13/lf-linux-amd64.tar.gz && tar xvf lf-linux-amd64.tar.gz && sudo mv lf /usr/local/bin && rm lf-linux-amd64.tar.gz
+    cmd: wget https://github.com/gokcehan/lf/releases/download/r13/lf-linux-amd64.tar.gz && tar xvf lf-linux-amd64.tar.gz && sudo mv lf /usr/local/bin ; rm -f lf-linux-amd64.tar.gz
     chdir: /tmp
     creates: /usr/local/bin/lf
     warn: false
@@ -56,7 +56,7 @@
 - name: install fd
   become: yes
   shell:
-    cmd: wget https://github.com/sharkdp/fd/releases/download/v7.4.0/fd_7.4.0_amd64.deb && sudo dpkg -i fd_7.4.0_amd64.deb && rm fd_7.4.0_amd64.deb
+    cmd: wget https://github.com/sharkdp/fd/releases/download/v7.4.0/fd_7.4.0_amd64.deb && sudo dpkg -i fd_7.4.0_amd64.deb ; rm -f fd_7.4.0_amd64.deb
     chdir: /tmp
     creates: /usr/bin/fd
     warn: false
