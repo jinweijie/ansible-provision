@@ -29,6 +29,12 @@
     owner: "{{ username }}"
     group: "{{ user_group }}"
 
+- name: change user shell to zsh 
+  become: yes
+  user:
+	  name: "{{ username }}"
+	  shell: /bin/zsh
+
 - name: copy .vimrc file
   copy:
     src: files/vimrc
