@@ -17,3 +17,6 @@
       - curl
       - wget
       - neofetch
+      - nethogs
+      - nload
+      - iptraf
