@@ -329,6 +329,14 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
   eval `ssh-agent -s` > /dev/null 2>&1
 fi
 
+# for wsl start Docker daemon automatically when logging in if not running.
+if test -f /proc/version && grep -q Microsoft /proc/version; then
+  DOCKER_RUNNING=`ps aux | grep dockerd | grep -v grep`
+  if [ -z "$DOCKER_RUNNING" ]; then
+    sudo dockerd > /dev/null 2>&1
+  fi
+fi
+
 # add keys
 ssh-add -q ~/.ssh/id_rsa_key
 
