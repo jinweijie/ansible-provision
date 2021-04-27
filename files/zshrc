@@ -104,13 +104,20 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 export PROMPT="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%} ${PROMPT}"
 
-# go bin
+# Go Path
 if [ -d "/usr/local/go/bin" ] ; then
   export PATH=$PATH:/usr/local/go/bin
 fi
 
-# Qt paths
-export PATH="/usr/local/opt/qt/bin:$PATH"
+# Qt Path
+if [ -d "/usr/local/opt/qt/bin" ] ; then
+  export PATH="$PATH:/usr/local/opt/qt/bin"
+fi
+
+# Flutter Path
+if [ -d "/usr/local/flutter/bin" ] ; then
+  export PATH="$PATH:/usr/local/flutter/bin"
+fi
 
 ################################### docker ###################################
 alias dk='docker'
