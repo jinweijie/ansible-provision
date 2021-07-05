@@ -347,6 +347,9 @@ fi
 # add keys
 ssh-add -q ~/.ssh/id_rsa_key
 
+# nuget keys
+[ -f ~/.nuget_keys ] && source ~/.nuget_keys && echo 'Nuget Keys Added.'
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
