@@ -21,3 +21,4 @@
       - nload
       - iptraf
       - ncdu
+      - net-tools
