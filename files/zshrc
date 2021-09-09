@@ -355,5 +355,8 @@ ssh-add -q ~/.ssh/id_rsa_key
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# localrc
+[ -f ~/.localrc ] && source ~/.localrc
+
 # neofetch
 hash neofetch 2>/dev/null && neofetch
