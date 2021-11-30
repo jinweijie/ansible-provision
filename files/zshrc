@@ -100,6 +100,10 @@ source $ZSH/oh-my-zsh.sh
 
 ########################### environment virables #############################
 
+# history
+export HISTCONTROL=ignoreboth
+export HISTTIMEFORMAT="%Y-%m-%d %T "
+
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
