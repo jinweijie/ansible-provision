@@ -155,6 +155,7 @@ alias dkelc='docker exec -it `dklcid` bash' # Enter last container (works with D
 alias dkex='docker exec -it ' # Useful to run any commands into container without leaving host
 alias dkri='docker run --rm -i '
 alias dkrit='docker run --rm -it '
+alias dkoverlay='docker inspect $(docker ps -qa) | jq -r "map([.Name, .GraphDriver.Data.MergedDir]) | .[] | \"\(.[0])\t\(.[1])\""'
 
 # Added more recent cleanup options from newer docker versions
 alias dkip='docker image prune -a -f'
