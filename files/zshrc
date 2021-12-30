@@ -303,7 +303,7 @@ function ka(){
 
     echo -e '\nTerminating' $cnt 'processes .. '
 
-    ps aux  |  grep -i $1 |  grep -v grep   | awk '{print $2}' | xargs sudo kill -klevel
+    ps aux  |  grep -i $1 |  grep -v grep   | awk '{print $2}' | xargs sudo kill -$klevel
     echo -e "Done!\n"
 
     echo "Running search again:"
