@@ -287,6 +287,30 @@ function bd(){
   fi
 }
 
+# process related functions
+# find process by name
+function p(){
+  ps aux | grep -i $1 | grep -v grep
+}
+
+# kill all, usage e.g: ka build, ka python, ka build 15, ka python 9
+function ka(){
+    cnt=$( p $1 | wc -l)  # total count of processes found
+    klevel=${2:-15}       # kill level, defaults to 15 if argument 2 is empty
+
+    echo -e "\nSearching for '$1' -- Found" $cnt "Running Processes .. "
+    p $1
+
+    echo -e '\nTerminating' $cnt 'processes .. '
+
+    ps aux  |  grep -i $1 |  grep -v grep   | awk '{print $2}' | xargs sudo kill -klevel
+    echo -e "Done!\n"
+
+    echo "Running search again:"
+    p "$1"
+    echo -e "\n"
+}
+
 # get the latest release tag from github for a specifiy project.
 # usage example: get_github_latest_release "docker/compose"
 function get_github_latest_release() {
