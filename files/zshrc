@@ -318,10 +318,10 @@ function get_github_latest_release() {
 }
 
 # create socks5 proxy
-# ssh -f -C -N -D 127.0.0.1:7878 USER@REMOTE_SERVER
+# ssh -f -C -N -D 127.0.0.1:7890 USER@REMOTE_SERVER
 # proxychains: PROXYCHAINS_SOCKS5 env variable
 
-alias proxyon='export http_proxy=http://127.0.0.1:7878 https_proxy=http://127.0.0.1:7878'
+alias proxyon='export http_proxy=http://127.0.0.1:7890 https_proxy=http://127.0.0.1:7890'
 alias proxyoff='unset http_proxy https_proxy'
 
 ################################### fd ############################################
