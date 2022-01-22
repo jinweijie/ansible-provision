@@ -321,8 +321,8 @@ function get_github_latest_release() {
 # ssh -f -C -N -D 127.0.0.1:7890 USER@REMOTE_SERVER
 # proxychains: PROXYCHAINS_SOCKS5 env variable
 
-alias proxyon='export http_proxy=http://127.0.0.1:7890 https_proxy=http://127.0.0.1:7890'
-alias proxyoff='unset http_proxy https_proxy'
+alias proxyon='export HTTP_PROXY=http://127.0.0.1:7890 HTTPS_PROXY=http://127.0.0.1:7890 NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.59.0/24,192.168.39.0/24'
+alias proxyoff='unset HTTP_PROXY HTTPS_PROXY'
 
 ################################### fd ############################################
 
