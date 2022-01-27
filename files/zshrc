@@ -431,7 +431,7 @@ if test -f /proc/version && grep -q Microsoft /proc/version; then
 fi
 
 # add keys
-[[ -f ~/.ssh/id_rsa_key ] && ssh-add -q ~/.ssh/id_rsa_key
+[[ -f ~/.ssh/id_rsa_key ]] && ssh-add -q ~/.ssh/id_rsa_key
 
 # nuget keys
 [[ -f ~/.nuget_keys ]] && source ~/.nuget_keys && echo 'Nuget Keys Added.'
