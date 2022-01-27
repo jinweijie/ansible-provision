@@ -287,6 +287,12 @@ function bd(){
   fi
 }
 
+# create a directory and cd into it
+alias md='' && unalias md
+function md() {
+  mkdir -p "$@" && cd "$@"
+}
+
 # process related functions
 # find process by name
 function p(){
@@ -315,11 +321,6 @@ function ka(){
 # usage example: get_github_latest_release "docker/compose"
 function get_github_latest_release() {
    curl -sL https://api.github.com/repos/$1/releases/latest | grep '"tag_name":' | cut -d'"' -f4
-}
-
-# create a directory and cd into it
-function md() {
-  mkdir -p "$@" && cd "$@"
 }
 
 ################################### proxy ############################################
