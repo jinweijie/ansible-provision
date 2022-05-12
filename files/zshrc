@@ -135,6 +135,15 @@ if [ -d "/usr/local/flutter/bin" ] ; then
   export PATH="$PATH:/usr/local/flutter/bin"
 fi
 
+################################ common alias ################################
+
+if [ -x "$(command -v exa)" ]; then
+  alias l='exa'
+  alias la='exa -la'
+  alias ll='exa -lh'
+  alias ls='exa --color=auto'
+fi
+
 ################################### docker ###################################
 alias dk='docker'
 alias dklc='docker ps -l'  # List last Docker container
