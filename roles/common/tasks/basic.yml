@@ -23,3 +23,5 @@
       - ncdu
       - net-tools
       - jq
+      - exa
+      - ripgrep
