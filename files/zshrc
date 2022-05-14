@@ -180,6 +180,10 @@ alias dkip='docker image prune -a -f'
 alias dkvp='docker volume prune -f'
 alias dksp='docker system prune -a -f'
 
+if [ -x "$(command -v lazydocker)" ]; then
+  alias dkl='lazydocker'
+fi
+
 ################################### docker compose ###################################
 
 alias dco="docker-compose"
@@ -277,6 +281,9 @@ case $OSTYPE in
     ;;
 esac
 
+if [ -x "$(command -v lazygit)" ]; then
+  alias gla='lazygit'
+fi
 
 ################################### utilities ##########################################
 
