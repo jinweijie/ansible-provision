@@ -142,6 +142,7 @@ if [ -x "$(command -v exa)" ]; then
   alias la='exa -la'
   alias ll='exa -lh'
   alias ls='exa --color=auto'
+  alias lt='exa --tree'
 fi
 
 ################################### docker ###################################
