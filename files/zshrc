@@ -286,6 +286,8 @@ if [ -x "$(command -v lazygit)" ]; then
   alias gla='lazygit'
 fi
 
+# until ssh user@server-ip; do sleep 5; done
+
 ################################### utilities ##########################################
 
 # directory related functions
