@@ -3,11 +3,15 @@
     name:
       - filezilla
       - copyq
-      - fcitx-bin
-      - fcitx-googlepinyin
-      - tilix # sudo update-alternatives --config x-terminal-emulator
-      - gnome-shell-extension-prefs # extension -> remove desktop icon
-      - dconf-editor
+      - fcitx5
+      - fcitx5-pinyin
+      - fcitx5-frontend-gtk2
+      - fcitx5-frontend-gtk3
+      - fcitx5-chinese-addons
+      - yakuake
+      # - tilix # sudo update-alternatives --config x-terminal-emulator
+      # - gnome-shell-extension-prefs # extension -> remove desktop icon
+      # - dconf-editor
       - python3-psutil
 
 - name: remove default unnecessary packages
