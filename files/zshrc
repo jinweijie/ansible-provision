@@ -185,6 +185,18 @@ if [ -x "$(command -v lazydocker)" ]; then
   alias dkl='lazydocker'
 fi
 
+function docker_startup_enable(){
+  sudo systemctl enable docker.socket
+  sudo systemctl enable docker.service
+  sudo systemctl start docker
+}
+
+function docker_startup_disable(){
+  sudo systemctl stop docker
+  sudo systemctl disable docker.service
+  sudo systemctl disable docker.socket
+}
+
 ################################### docker compose ###################################
 
 alias dco="docker-compose"
