@@ -430,6 +430,10 @@ start_proxy_7878() {
   elif [[ $# -eq 2 ]]; then
     user="$1"
     remote_host="$2"
+  elif [[ $# -eq 3 ]]; then
+    user="$1"
+    remote_host="$2"
+    port="$3"
   else
     echo "Usage: start_proxy [user] <remote_host>"
     return 1
