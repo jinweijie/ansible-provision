@@ -421,7 +421,7 @@ alias proxyon_7878='export HTTP_PROXY=http://127.0.0.1:7878 HTTPS_PROXY=http://1
 alias proxyoff_7878='unset HTTP_PROXY HTTPS_PROXY'
 
 # start SOCKS5 proxy
-start_proxy_7878() {
+start_proxy() {
   local user="ubuntu"
   local remote_host=""
 
@@ -446,7 +446,7 @@ start_proxy_7878() {
 }
 
 # stop SOCKS5 proxy
-stop_proxy_7878() {
+stop_proxy() {
   if [[ -n "$SOCKS_PROXY_PID" ]]; then
     kill $SOCKS_PROXY_PID
     unset SOCKS_PROXY_PID
