@@ -456,6 +456,35 @@ stop_proxy() {
   fi
 }
 
+start_http_proxy() {
+  ##http proxy
+  local polipo_config="${HOME}/.polipo_config"
+
+  # installation
+  # wget http://archive.ubuntu.com/ubuntu/pool/universe/p/polipo/polipo_1.1.1-8_amd64.deb
+  # sudo dpkg -i polipo_1.1.1-8_amd64.deb
+
+  # polipo_config content:
+  ##    socksParentProxy = "127.0.0.1:7878"
+  ##    socksProxyType = socks5
+  ##    proxyAddress = "0.0.0.0"
+  ##    proxyPort = 7879
+
+  polipo -c $polipo_config &
+  echo "HTTP proxy started on $bind_address:7879"
+  export HTTP_PROXY_PID=$!
+}
+
+stop_http_proxy() {
+  if [[ -n "$HTTP_PROXY_PID" ]]; then
+    kill $HTTP_PROXY_PID
+    unset HTTP_PROXY_PID
+    echo "HTTP proxy stopped"
+  else
+    echo "No HTTP proxy is running"
+  fi
+}
+
 ################################### fd ############################################
 
 # FD Exclude those directories even if not listed in .gitignore, or if .gitignore is missing
