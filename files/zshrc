@@ -337,6 +337,14 @@ fi
 
 ################################### utilities ##########################################
 
+function generate_password() {
+    local LENGTH=${1:-20}
+    local CHARS='A-Za-z0-9'
+    local PASSWORD=$(cat /dev/urandom | tr -dc "$CHARS" | fold -w $LENGTH | head -n 1)
+
+    echo $PASSWORD
+}
+
 # directory related functions
 function cd() {
   if [ "$#" = "0" ]
